@@ -1,0 +1,31 @@
+{
+  "projects": [
+    {
+      "id": "fantasy-adventure",
+      "title": "판타지 어드벤처",
+      "description": "3D 오픈 월드 RPG 게임으로, 광활한 판타지 세계를 탐험하며 퀘스트를 수행하고 캐릭터를 성장시키는 게임입니다. 다양한 NPC 상호작용과 전투 시스템을 구현했습니다.",
+      "tags": ["Unity", "C#", "3D 모델링"],
+      "image": "images/projects/fantasy-adventure.jpg",
+      "demoLink": "#",
+      "codeLink": "#"
+    },
+    {
+      "id": "space-defender",
+      "title": "스페이스 디펜더",
+      "description": "우주를 배경으로 한 슈팅 게임으로, 적 우주선의 공격을 막아내며 점수를 쌓는 게임입니다. 다양한 무기 시스템과 보스 전투를 구현했습니다.",
+      "tags": ["Unreal Engine", "C++", "블루프린트"],
+      "image": "images/projects/space-defender.jpg",
+      "demoLink": "#",
+      "codeLink": "#"
+    },
+    {
+      "id": "puzzle-mania",
+      "title": "퍼즐 매니아",
+      "description": "모바일 퍼즐 게임으로, 다양한 레벨의 퍼즐을 해결하며 진행하는 캐주얼 게임입니다. 중독성 있는 게임플레이와 진행 시스템을 구현했습니다.",
+      "tags": ["Unity", "C#", "2D 아트"],
+      "image": "images/projects/puzzle-mania.jpg",
+      "demoLink": "#",
+      "codeLink": "#"
+    }
+  ]
+}

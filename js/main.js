@@ -29,7 +29,7 @@ function initSmoothScroll() {
     });
 }
 
-// 연락처 폼 제출 처리
+// 연락처 폼 제출 처리 - 정적 웹사이트용으로 수정됨
 function initContactForm() {
     const contactForm = document.querySelector('.contact-form');
     
@@ -45,20 +45,28 @@ function initContactForm() {
                 message: document.getElementById('message').value
             };
             
-            // API 호출
-            sendContactForm(formData);
+            // 정적 웹사이트에서는 실제 전송 불가능, 이메일 링크로 대체
+            handleStaticFormSubmission(formData);
         });
     }
 }
 
-// 폼 데이터 전송 (백엔드 연동)
-async function sendContactForm(formData) {
+// 정적 웹사이트에서의 폼 처리 방법
+function handleStaticFormSubmission(formData) {
     try {
-        // 실제 API 호출 부분은 백엔드가 구현되면 추가
-        console.log('전송할 데이터:', formData);
+        // 데이터 확인
+        console.log('입력된 데이터:', formData);
         
-        // 성공 메시지 표시 (실제로는 API 응답에 따라 처리)
-        alert('메시지가 성공적으로 전송되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+        // 이메일 클라이언트로 연결 (mailto: 링크 활용)
+        const subject = encodeURIComponent(formData.subject);
+        const body = encodeURIComponent(`이름: ${formData.name}\n이메일: ${formData.email}\n메시지: ${formData.message}`);
+        
+        // 사용자에게 이메일 클라이언트를 열지 묻기
+        if (confirm('이메일 앱으로 메시지를 전송하시겠습니까?')) {
+            window.location.href = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
+        } else {
+            alert('연락해 주셔서 감사합니다! 아래 이메일로 직접 연락주세요: your-email@example.com');
+        }
         
         // 폼 초기화
         document.getElementById('name').value = '';
@@ -67,8 +75,8 @@ async function sendContactForm(formData) {
         document.getElementById('message').value = '';
         
     } catch (error) {
-        console.error('메시지 전송 실패:', error);
-        alert('메시지 전송에 실패했습니다. 다시 시도해주세요.');
+        console.error('처리 오류:', error);
+        alert('처리 중 오류가 발생했습니다. 직접 이메일로 연락해주세요: your-email@example.com');
     }
 }
 

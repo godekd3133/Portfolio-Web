@@ -1,0 +1,19 @@
+{
+  "featuredGame": {
+    "id": "fantasy-adventure-kingdom",
+    "title": "판타지 어드벤처: 잊혀진 왕국",
+    "description": "몰입감 있는 오픈 월드를 배경으로 한 다양한 퀘스트와 전투 시스템, 캐릭터 성장을 경험할 수 있는 대규모 RPG 게임입니다.",
+    "features": [
+      "광활한 오픈 월드 맵",
+      "100개 이상의 퀘스트",
+      "실시간 전투 시스템",
+      "다양한 NPC 및 몬스터",
+      "날씨 및 시간 시스템"
+    ],
+    "image": "images/games/featured-game.jpg",
+    "trailerLink": "#",
+    "devProcessLink": "#",
+    "gameplayVideo": "images/games/gameplay-video.mp4"
+  },
+  "otherGames": []
+}
