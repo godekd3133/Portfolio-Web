@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-web",
+  "version": "1.0.0",
+  "description": "개인 포트폴리오 웹사이트",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve dist",
+    "build": "tsc && npm run copy-assets",
+    "dev": "tsc --watch",
+    "copy-assets": "mkdir -p dist && cp -R index.html components css data images dist/",
+    "deploy": "npm run build && npm run start",
+    "clean": "rm -rf dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serve": "^14.2.1",
+    "typescript": "^5.3.3"
+  }
+}
