@@ -1,0 +1,98 @@
+/**
+ * CSS Variables
+ * Centralized design tokens for consistent styling
+ */
+
+:root {
+  /* Colors */
+  --primary-color: #6c63ff;
+  --primary-light: #8a7eff;
+  --primary-dark: #5046e5;
+  --secondary-color: #2a2a42;
+  --accent-color: #ff6b6b;
+  
+  /* Background Colors */
+  --bg-light: #f8f9fa;
+  --bg-dark: #1a1a2e;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --bg-card-hover: rgba(255, 255, 255, 0.1);
+  --darker-bg: #14141f;
+  
+  /* Text Colors */
+  --light-text: #ffffff;
+  --dark-text: #14141f;
+  --gray-text: rgba(255, 255, 255, 0.7);
+  --muted-text: rgba(255, 255, 255, 0.5);
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 50%;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+  
+  /* Typography */
+  --heading-font: 'Poppins', sans-serif;
+  --body-font: 'Inter', sans-serif;
+  --mono-font: 'Fira Code', monospace;
+  
+  /* Font Sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3rem;
+  
+  /* Container */
+  --container-max-width: 1200px;
+  --container-padding: 2rem;
+  
+  /* Z-index layers */
+  --z-background: -10;
+  --z-default: 1;
+  --z-floating: 10;
+  --z-overlay: 100;
+  --z-modal: 1000;
+  --z-toast: 2000;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Dark Theme Variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Already a dark theme by default */
+  }
+}
+
+/* Light Theme Variables - Applied when .light-theme class is added */
+.light-theme {
+  --bg-light: #ffffff;
+  --bg-dark: #f0f0f7;
+  --darker-bg: #e5e5e5;
+  --secondary-color: #f0f0f7;
+  --light-text: #14141f;
+  --dark-text: #14141f;
+  --gray-text: rgba(20, 20, 31, 0.7);
+  --muted-text: rgba(20, 20, 31, 0.5);
+  --bg-card: rgba(0, 0, 0, 0.02);
+  --bg-card-hover: rgba(0, 0, 0, 0.05);
+}
