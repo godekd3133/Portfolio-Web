@@ -1,13 +1,48 @@
+// 헤더 스크롤 이벤트
+function initHeaderScroll() {
+    const header = document.querySelector('.main-navigation');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+}
+
 // 페이지 로드 완료 시 실행
 document.addEventListener('DOMContentLoaded', () => {
     // 스크롤 애니메이션
     initSmoothScroll();
     
-    // 폼 제출 처리
-    initContactForm();
+    // 섹션 등장 애니메이션
+    initSectionAnimation();
     
     // 프로젝트 카드 애니메이션
     initProjectCards();
+    
+    // 헤더 스크롤 이벤트
+    initHeaderScroll();
+    
+    // 프리로더 제거
+    hidePreloader();
+});
+
+// 백 투 탑 버튼
+const backToTopButton = document.querySelector('.back-to-top');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        backToTopButton.classList.add('show');
+    } else {
+        backToTopButton.classList.remove('show');
+    }
+});
+
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
 
 // 부드러운 스크롤 기능
@@ -29,54 +64,38 @@ function initSmoothScroll() {
     });
 }
 
-// 연락처 폼 제출 처리 - 정적 웹사이트용으로 수정됨
-function initContactForm() {
-    const contactForm = document.querySelector('.contact-form');
+// 섹션 등장 애니메이션
+function initSectionAnimation() {
+    const sections = document.querySelectorAll('section');
+    const options = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // 폼 데이터 수집
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
-            
-            // 정적 웹사이트에서는 실제 전송 불가능, 이메일 링크로 대체
-            handleStaticFormSubmission(formData);
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                sectionObserver.unobserve(entry.target);
+            }
         });
-    }
+    }, options);
+    
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
 }
 
-// 정적 웹사이트에서의 폼 처리 방법
-function handleStaticFormSubmission(formData) {
-    try {
-        // 데이터 확인
-        console.log('입력된 데이터:', formData);
-        
-        // 이메일 클라이언트로 연결 (mailto: 링크 활용)
-        const subject = encodeURIComponent(formData.subject);
-        const body = encodeURIComponent(`이름: ${formData.name}\n이메일: ${formData.email}\n메시지: ${formData.message}`);
-        
-        // 사용자에게 이메일 클라이언트를 열지 묻기
-        if (confirm('이메일 앱으로 메시지를 전송하시겠습니까?')) {
-            window.location.href = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
-        } else {
-            alert('연락해 주셔서 감사합니다! 아래 이메일로 직접 연락주세요: your-email@example.com');
-        }
-        
-        // 폼 초기화
-        document.getElementById('name').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('subject').value = '';
-        document.getElementById('message').value = '';
-        
-    } catch (error) {
-        console.error('처리 오류:', error);
-        alert('처리 중 오류가 발생했습니다. 직접 이메일로 연락해주세요: your-email@example.com');
+// 프리로더 숨기기
+function hidePreloader() {
+    const preloader = document.querySelector('.preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        }, 1000);
     }
 }
 

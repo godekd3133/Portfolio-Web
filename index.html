@@ -1,226 +1,354 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게임 개발자 포트폴리오</title>
+    <title>Minkyu Kim | Software Engineer & Game Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/contact-styles.css">
+    <link rel="stylesheet" href="css/back-to-top.css">
     <script src="js/main.js" defer></script>
     <script src="js/projects.js" defer></script>
 </head>
 <body>
-    <header>
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="loader"></div>
+            <span>Loading...</span>
+        </div>
+    </div>
+
+    <header class="header">
         <div class="header-bg"></div>
         <div class="header-content">
-            <div class="profile-image">
-                <div class="profile-image-placeholder">사진</div>
+            <div class="profile-container">
+                <div class="profile-image">
+                    <div class="profile-image-placeholder">MK</div>
+                </div>
+                <div class="profile-text">
+                    <h1>Minkyu Kim</h1>
+                    <div class="title-animation">
+                        <span class="title-text">Software Engineer</span>
+                        <span class="title-text">Game Developer</span>
+                        <span class="title-text">Creative Technologist</span>
+                    </div>
+                </div>
             </div>
-            <h1>김민규</h1>
-            <p>게임 개발자 | 3D 아티스트</p>
+            <div class="header-cta">
+                <a href="#contact" class="btn btn-primary">Contact Me</a>
+                <a href="#resume" class="btn btn-secondary">View Resume</a>
+            </div>
         </div>
     </header>
     
     <nav class="main-navigation">
-        <ul class="nav-links">
-            <li><a href="#about">소개</a></li>
-            <li><a href="#projects">프로젝트</a></li>
-            <li><a href="#games">게임</a></li>
-            <li><a href="#skills">기술 스택</a></li>
-            <li><a href="#contact">연락처</a></li>
-        </ul>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#">MK</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#games">Featured Games</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
     
     <main>
-        <section id="about">
-            <h2>소개</h2>
-            <div class="intro-text">
-                <p>안녕하세요! 저는 창의적인 게임 경험을 만드는 데 열정을 가진 게임 개발자입니다. Unity와 Unreal Engine으로 몰입감 있는 게임을 개발하는 것을 좋아하며, 게임 메카닉스와 사용자 경험을 최적화하는 데 집중합니다.</p>
-                <p>다양한 장르의 게임 개발 경험을 통해 문제 해결 능력과 협업 능력을 키웠으며, 항상 새로운 기술과 도전을 환영합니다.</p>
+        <section id="about" class="section-about">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-image-container">
+                        <div class="about-image-placeholder">Profile Photo</div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>Hello! I'm a passionate software engineer and game developer dedicated to creating immersive digital experiences. I specialize in developing applications and games with modern technologies, focusing on optimizing functionality and user experience.</p>
+                    <p>Through my experience developing games across various genres, I've honed my problem-solving skills and ability to collaborate effectively. I'm always eager to embrace new technologies and challenges in the gaming industry.</p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="highlight-text">
+                                <h3>Software Engineering</h3>
+                                <p>Building robust applications with modern technologies</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div class="highlight-text">
+                                <h3>Game Development</h3>
+                                <p>Creating immersive experiences with Unity and Unreal Engine</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="highlight-text">
+                                <h3>Mobile Development</h3>
+                                <p>Expert in mobile app and game development</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
-        <section id="projects">
-            <h2>프로젝트</h2>
-            <p>제가 지금까지 개발한 게임 프로젝트들입니다.</p>
+
+        <section id="projects" class="section-projects">
+            <div class="section-header">
+                <h2>Projects</h2>
+                <div class="section-divider"></div>
+            </div>
+            <p class="section-intro">Showcasing some of my most significant software engineering projects.</p>
             
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up">
                     <div class="project-image">
-                        <div class="project-image-placeholder">게임 스크린샷</div>
+                        <div class="project-image-overlay">
+                            <div class="project-actions">
+                                <a href="#" class="project-btn">Live Demo</a>
+                                <a href="#" class="project-btn secondary">GitHub Repo</a>
+                            </div>
+                        </div>
+                        <div class="project-image-placeholder">Project Screenshot</div>
                     </div>
                     <div class="project-info">
-                        <h3 class="project-title">판타지 어드벤처</h3>
-                        <p class="project-description">3D 오픈 월드 RPG 게임으로, 광활한 판타지 세계를 탐험하며 퀘스트를 수행하고 캐릭터를 성장시키는 게임입니다. 다양한 NPC 상호작용과 전투 시스템을 구현했습니다.</p>
+                        <h3 class="project-title">Cloud Game Backend</h3>
+                        <p class="project-description">A scalable backend system for mobile games supporting millions of concurrent users. Features include user authentication, real-time data synchronization, and analytics.</p>
                         <div class="project-tags">
-                            <span class="project-tag">Unity</span>
-                            <span class="project-tag">C#</span>
-                            <span class="project-tag">3D 모델링</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="#" class="project-btn">게임 플레이</a>
-                            <a href="#" class="project-btn secondary">소스 코드</a>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">AWS</span>
+                            <span class="project-tag">MongoDB</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-image">
-                        <div class="project-image-placeholder">게임 스크린샷</div>
+                        <div class="project-image-overlay">
+                            <div class="project-actions">
+                                <a href="#" class="project-btn">Live Demo</a>
+                                <a href="#" class="project-btn secondary">GitHub Repo</a>
+                            </div>
+                        </div>
+                        <div class="project-image-placeholder">Project Screenshot</div>
                     </div>
                     <div class="project-info">
-                        <h3 class="project-title">스페이스 디펜더</h3>
-                        <p class="project-description">우주를 배경으로 한 슈팅 게임으로, 적 우주선의 공격을 막아내며 점수를 쌓는 게임입니다. 다양한 무기 시스템과 보스 전투를 구현했습니다.</p>
+                        <h3 class="project-title">e-Commerce Platform</h3>
+                        <p class="project-description">A full-stack e-commerce solution with responsive frontend, secure payment processing, and comprehensive admin dashboard for product management.</p>
                         <div class="project-tags">
-                            <span class="project-tag">Unreal Engine</span>
-                            <span class="project-tag">C++</span>
-                            <span class="project-tag">블루프린트</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="#" class="project-btn">게임 플레이</a>
-                            <a href="#" class="project-btn secondary">소스 코드</a>
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Express</span>
+                            <span class="project-tag">PostgreSQL</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-image">
-                        <div class="project-image-placeholder">게임 스크린샷</div>
+                        <div class="project-image-overlay">
+                            <div class="project-actions">
+                                <a href="#" class="project-btn">Live Demo</a>
+                                <a href="#" class="project-btn secondary">GitHub Repo</a>
+                            </div>
+                        </div>
+                        <div class="project-image-placeholder">Project Screenshot</div>
                     </div>
                     <div class="project-info">
-                        <h3 class="project-title">퍼즐 매니아</h3>
-                        <p class="project-description">모바일 퍼즐 게임으로, 다양한 레벨의 퍼즐을 해결하며 진행하는 캐주얼 게임입니다. 중독성 있는 게임플레이와 진행 시스템을 구현했습니다.</p>
+                        <h3 class="project-title">Data Visualization Dashboard</h3>
+                        <p class="project-description">An interactive analytics dashboard providing real-time insights through customizable charts and reports. Features include data filtering, export options, and user permissions.</p>
                         <div class="project-tags">
-                            <span class="project-tag">Unity</span>
-                            <span class="project-tag">C#</span>
-                            <span class="project-tag">2D 아트</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="#" class="project-btn">게임 플레이</a>
-                            <a href="#" class="project-btn secondary">소스 코드</a>
+                            <span class="project-tag">Vue.js</span>
+                            <span class="project-tag">D3.js</span>
+                            <span class="project-tag">Firebase</span>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <div class="projects-cta">
+                <a href="#" class="btn btn-outline">View All Projects</a>
+            </div>
         </section>
         
-        <section id="games">
-            <h2>대표작</h2>
-            <p>게임 개발 경력 중 가장 자랑스러운 작품입니다.</p>
+        <section id="games" class="section-featured">
+            <div class="section-header">
+                <h2>Featured Work</h2>
+                <div class="section-divider"></div>
+            </div>
+            <p class="section-intro">My most accomplished work in software engineering.</p>
             
             <div class="featured-game">
-                <div class="featured-game-info">
-                    <h3>판타지 어드벤처: 잊혀진 왕국</h3>
-                    <p>몰입감 있는 오픈 월드를 배경으로 한 다양한 퀘스트와 전투 시스템, 캐릭터 성장을 경험할 수 있는 대규모 RPG 게임입니다.</p>
-                    <p>주요 기능:</p>
-                    <ul>
-                        <li>광활한 오픈 월드 맵</li>
-                        <li>100개 이상의 퀘스트</li>
-                        <li>실시간 전투 시스템</li>
-                        <li>다양한 NPC 및 몬스터</li>
-                        <li>날씨 및 시간 시스템</li>
-                    </ul>
-                    <div class="project-actions">
-                        <a href="#" class="project-btn">게임 트레일러 보기</a>
-                        <a href="#" class="project-btn secondary">개발 과정 보기</a>
-                    </div>
-                </div>
                 <div class="featured-game-image">
-                    <div class="project-image-placeholder">게임 스크린샷</div>
+                    <div class="featured-game-placeholder">Architecture Diagram</div>
+                </div>
+                <div class="featured-game-info">
+                    <h3>Enterprise Microservices Architecture</h3>
+                    <p>A comprehensive microservices platform built to handle high-traffic applications with seamless scaling capabilities and robust fault tolerance.</p>
+                    <div class="featured-game-details">
+                        <h4>Key Features</h4>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Containerized services with Kubernetes orchestration</li>
+                            <li><i class="fas fa-check"></i> Distributed system monitoring with Prometheus</li>
+                            <li><i class="fas fa-check"></i> Service mesh architecture with Istio</li>
+                            <li><i class="fas fa-check"></i> Automated CI/CD pipeline with GitHub Actions</li>
+                            <li><i class="fas fa-check"></i> Event-driven architecture using Kafka</li>
+                        </ul>
+                    </div>
+                    <div class="featured-game-actions">
+                        <a href="#" class="btn btn-primary">View Demo</a>
+                        <a href="#" class="btn btn-secondary">Case Study</a>
+                    </div>
                 </div>
             </div>
             
             <div class="game-showcase">
-                <h3>게임플레이 영상</h3>
+                <h3>Technical Walkthrough</h3>
                 <div class="game-video">
-                    <div class="game-video-placeholder">게임플레이 영상</div>
+                    <div class="game-video-placeholder">Architecture Diagram</div>
                 </div>
             </div>
         </section>
         
-        <section id="skills">
-            <h2>기술 스택</h2>
-            <p>게임 개발에 활용하는 기술들입니다.</p>
+        <section id="skills" class="section-skills">
+            <div class="section-header">
+                <h2>Skills</h2>
+                <div class="section-divider"></div>
+            </div>
+            <p class="section-intro">Technical expertise I bring to software engineering projects.</p>
             
             <div class="skills-container">
                 <div class="skill-category">
-                    <h3>게임 엔진</h3>
+                    <div class="skill-category-header">
+                        <i class="fas fa-server"></i>
+                        <h3>Backend Technologies</h3>
+                    </div>
                     <ul class="skill-list">
                         <li class="skill-item">
-                            <span class="skill-name">Unity</span>
+                            <span class="skill-name">Node.js</span>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 95%;"></div>
+                                <div class="skill-level" style="width: 95%;">
+                                    <span class="skill-percent">95%</span>
+                                </div>
                             </div>
                         </li>
                         <li class="skill-item">
-                            <span class="skill-name">Unreal Engine</span>
+                            <span class="skill-name">Express.js</span>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 85%;"></div>
+                                <div class="skill-level" style="width: 90%;">
+                                    <span class="skill-percent">90%</span>
+                                </div>
                             </div>
                         </li>
                         <li class="skill-item">
-                            <span class="skill-name">Godot</span>
+                            <span class="skill-name">AWS</span>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 70%;"></div>
+                                <div class="skill-level" style="width: 85%;">
+                                    <span class="skill-percent">85%</span>
+                                </div>
                             </div>
                         </li>
                     </ul>
                 </div>
                 
                 <div class="skill-category">
-                    <h3>프로그래밍</h3>
+                    <div class="skill-category-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Programming</h3>
+                    </div>
                     <ul class="skill-list">
-                        <li class="skill-item">
-                            <span class="skill-name">C#</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 90%;"></div>
-                            </div>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-name">C++</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 80%;"></div>
-                            </div>
-                        </li>
                         <li class="skill-item">
                             <span class="skill-name">JavaScript</span>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 75%;"></div>
+                                <div class="skill-level" style="width: 95%;">
+                                    <span class="skill-percent">95%</span>
+                                </div>
                             </div>
                         </li>
                         <li class="skill-item">
                             <span class="skill-name">TypeScript</span>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 85%;"></div>
+                                <div class="skill-level" style="width: 90%;">
+                                    <span class="skill-percent">90%</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%;">
+                                    <span class="skill-percent">85%</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-name">Java</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 80%;">
+                                    <span class="skill-percent">80%</span>
+                                </div>
                             </div>
                         </li>
                     </ul>
                 </div>
                 
                 <div class="skill-category">
-                    <h3>아트 & 디자인</h3>
+                    <div class="skill-category-header">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Frontend Technologies</h3>
+                    </div>
                     <ul class="skill-list">
                         <li class="skill-item">
-                            <span class="skill-name">Blender</span>
+                            <span class="skill-name">React</span>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 80%;"></div>
+                                <div class="skill-level" style="width: 90%;">
+                                    <span class="skill-percent">90%</span>
+                                </div>
                             </div>
                         </li>
                         <li class="skill-item">
-                            <span class="skill-name">Maya</span>
+                            <span class="skill-name">Vue.js</span>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 75%;"></div>
+                                <div class="skill-level" style="width: 85%;">
+                                    <span class="skill-percent">85%</span>
+                                </div>
                             </div>
                         </li>
                         <li class="skill-item">
-                            <span class="skill-name">Photoshop</span>
+                            <span class="skill-name">HTML/CSS</span>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 85%;"></div>
+                                <div class="skill-level" style="width: 95%;">
+                                    <span class="skill-percent">95%</span>
+                                </div>
                             </div>
                         </li>
                         <li class="skill-item">
-                            <span class="skill-name">ZBrush</span>
+                            <span class="skill-name">Tailwind CSS</span>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 70%;"></div>
+                                <div class="skill-level" style="width: 85%;">
+                                    <span class="skill-percent">85%</span>
+                                </div>
                             </div>
                         </li>
                     </ul>
@@ -228,44 +356,199 @@
             </div>
         </section>
         
-        <section id="contact">
-            <h2>연락처</h2>
-            <p>게임 개발 협업이나 취업 문의는 아래 양식을 통해 연락주세요.</p>
+        <section id="resume" class="section-resume">
+            <div class="section-header">
+                <h2>Resume</h2>
+                <div class="section-divider"></div>
+            </div>
+            <p class="section-intro">My professional background and qualifications.</p>
             
-            <form class="contact-form">
-                <div class="form-group">
-                    <label class="form-label" for="name">이름</label>
-                    <input type="text" id="name" class="form-input" placeholder="이름을 입력하세요" required>
+            <div class="resume-content">
+                <div class="resume-container">
+                    <div class="resume-download">
+                        <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Download Resume PDF</a>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <div class="resume-section-header">
+                            <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+                        </div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">2022 - Present</div>
+                                    <h4 class="timeline-title">Senior Software Engineer</h4>
+                                    <h5 class="timeline-subtitle">Bagelcode, Seoul</h5>
+                                    <p>Developing and maintaining software systems for mobile games, focusing on backend architecture and game services optimization.</p>
+                                    <ul class="timeline-list">
+                                        <li>Lead engineer for game service infrastructure</li>
+                                        <li>Implemented scalable backend systems</li>
+                                        <li>Optimized performance across multiple platforms</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">2019 - 2022</div>
+                                    <h4 class="timeline-title">Software Engineer</h4>
+                                    <h5 class="timeline-subtitle">GameStudio Inc., Seoul</h5>
+                                    <p>Built and maintained server-side applications and game backend systems using Node.js and AWS services.</p>
+                                    <ul class="timeline-list">
+                                        <li>Designed and implemented RESTful APIs for game services</li>
+                                        <li>Created scalable database solutions for player data</li>
+                                        <li>Developed real-time multiplayer functionality with websockets</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">2017 - 2019</div>
+                                    <h4 class="timeline-title">Frontend Developer</h4>
+                                    <h5 class="timeline-subtitle">Mobile Games Ltd., Seoul</h5>
+                                    <p>Developed responsive web applications and game interfaces using React and TypeScript.</p>
+                                    <ul class="timeline-list">
+                                        <li>Built user interfaces for mobile game companion apps</li>
+                                        <li>Implemented analytics dashboards and admin tools</li>
+                                        <li>Optimized web performance for mobile devices</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <div class="resume-section-header">
+                            <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                        </div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">2013 - 2017</div>
+                                    <h4 class="timeline-title">Bachelor of Science, Computer Science</h4>
+                                    <h5 class="timeline-subtitle">Seoul National University</h5>
+                                    <p>Specialized in Software Engineering and Web Development. Graduated with honors.</p>
+                                    <ul class="timeline-list">
+                                        <li>Thesis: "Building Scalable Web Services for Gaming Applications"</li>
+                                        <li>President of Software Engineering Club</li>
+                                        <li>Recipient of Excellence in Computer Science Award</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <div class="resume-section-header">
+                            <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                        </div>
+                        <div class="certifications">
+                            <div class="certification-item">
+                                <div class="certification-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="certification-info">
+                                    <h4>AWS Certified Solutions Architect</h4>
+                                    <p>Amazon Web Services, 2022</p>
+                                </div>
+                            </div>
+                            <div class="certification-item">
+                                <div class="certification-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="certification-info">
+                                    <h4>Certified Kubernetes Administrator</h4>
+                                    <p>Cloud Native Computing Foundation, 2021</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="email">이메일</label>
-                    <input type="email" id="email" class="form-input" placeholder="이메일을 입력하세요" required>
+            </div>
+        </section>
+        
+        <section id="contact" class="section-contact">
+            <div class="section-header">
+                <h2>Contact</h2>
+                <div class="section-divider"></div>
+            </div>
+            <p class="section-intro">Get in touch for collaboration or employment opportunities.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Email</h3>
+                        <p><a href="mailto:your-email@example.com">your-email@example.com</a></p>
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="subject">제목</label>
-                    <input type="text" id="subject" class="form-input" placeholder="제목을 입력하세요" required>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Location</h3>
+                        <p>Seoul, South Korea</p>
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="message">메시지</label>
-                    <textarea id="message" class="form-textarea" placeholder="메시지를 입력하세요" required></textarea>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Social Media</h3>
+                        <div class="social-links-contact">
+                            <a href="#" class="social-icon-contact"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon-contact"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-icon-contact"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon-contact"><i class="fab fa-dev"></i></a>
+                        </div>
+                    </div>
                 </div>
-                
-                <button type="submit" class="submit-button">보내기</button>
-            </form>
+            </div>
         </section>
     </main>
     
-    <footer>
-        <p>&copy; 2025 김민규. All Rights Reserved.</p>
-        <div class="social-links">
-            <a href="#" class="social-icon">GitHub</a>
-            <a href="#" class="social-icon">LinkedIn</a>
-            <a href="#" class="social-icon">Twitter</a>
-            <a href="#" class="social-icon">Artstation</a>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#">MK</a>
+                </div>
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#resume">Resume</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#games">Featured</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-text">
+                    <p>&copy; 2025 Minkyu Kim. All Rights Reserved.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-dev"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 </body>
 </html>
