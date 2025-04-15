@@ -11,7 +11,7 @@ function createProjectHTML(project) {
             <div class="project-image">
                 <div class="project-image-overlay">
                     <div class="project-actions">
-                        <a href="${project.demoLink}" class="project-btn">Live Demo</a>
+                        <a href="${project.demoLink}" class="project-btn">Experience</a>
                         <a href="${project.codeLink}" class="project-btn secondary">GitHub Repo</a>
                     </div>
                 </div>
@@ -70,7 +70,7 @@ async function renderFeaturedGame() {
                 </ul>
             </div>
             <div class="featured-game-actions">
-                <a href="${game.demoLink}" class="btn btn-primary">View Demo</a>
+                <a href="${game.demoLink}" class="btn btn-primary">Experience</a>
                 <a href="${game.caseStudyLink}" class="btn btn-secondary">Case Study</a>
             </div>
         </div>
