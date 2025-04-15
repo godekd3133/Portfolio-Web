@@ -2,31 +2,51 @@
   "companies": [
     {
       "name": "Bagelcode",
-      "period": "2022 - Present",
+      "period": "2021 - Present",
       "projects": [
         {
-          "title": "Club Vegas Casino Game",
-          "tags": ["Node.js", "AWS", "Unity"],
-          "image": "images/work/clubvegas.jpg",
-          "role": "Backend Engineer",
+          "title": "Unreleased Casual Game",
+          "tags": ["Unity", "Gaia"],
+          "image": "images/work/casual_game.jpg",
+          "role": "Software Engineer",
+          "period": "Aug 2024 - Present",
           "responsibilities": [
-            "Developed backend services for casino game mechanics",
-            "Implemented secure payment and rewards systems",
-            "Optimized database performance for millions of users",
-            "Created REST APIs for game functionality and user management"
+            "Developed in-game and out-game UI components",
+            "Implemented sound system architecture",
+            "Established web server protocol connections using Gaia"
           ],
           "note": "Due to company policy, code and live demo cannot be shared publicly."
         },
         {
-          "title": "Jackpot World Slots",
-          "tags": ["AWS", "MongoDB", "CI/CD"],
-          "image": "images/work/jackpotworld.jpg",
-          "role": "Senior Backend Developer",
+          "title": "Slot Machine Development Projects",
+          "tags": ["Typescript", "Unity"],
+          "image": "images/work/slots.jpg",
+          "role": "Software Engineer",
+          "period": "Dec 2021 - Aug 2024",
           "responsibilities": [
-            "Architected scalable microservices for game operations",
-            "Led implementation of social features and tournaments",
-            "Built analytics systems to track and optimize game performance",
-            "Improved service reliability with automated testing and monitoring"
+            "Developed 14 slot machines for Club Vegas Slots, Cash Billionaire, and Jackpot Madness",
+            "Implemented complete server-side logic using Typescript",
+            "Developed full client-side logic with Unity",
+            "Optimized meta-systems and in-game core logic for better performance"
+          ],
+          "note": "Due to company policy, code and live demo cannot be shared publicly."
+        }
+      ]
+    },
+    {
+      "name": "나인엠인터랙티브 (현 메타월드)",
+      "period": "Jul 2020 - Dec 2021",
+      "projects": [
+        {
+          "title": "Project Sheed - Unreleased Casual Game",
+          "tags": ["Typescript", "Unity"],
+          "image": "images/work/sheed.jpg",
+          "role": "Software Engineer",
+          "responsibilities": [
+            "Developed core game logic for card deck-based merge battle simulation",
+            "Implemented combat unit AI systems",
+            "Created crowd control movement mechanics",
+            "Built out-game UI components"
           ],
           "note": "Due to company policy, code and live demo cannot be shared publicly."
         }
