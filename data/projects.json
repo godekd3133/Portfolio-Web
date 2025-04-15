@@ -1,43 +1,328 @@
 {
   "projects": [
     {
-      "id": "fantasy-adventure",
-      "title": "판타ㅇㅁㄴㅇㅁㄴ지 어드벤처",
-      "description": "3D 오픈 월드 RPG 게임으로, 광활한 판타지 세계를 탐험하며 퀘스트를 수행하고 캐릭터를 성장시키는 게임입니다. 다양한 NPC 상호작용과 전투 시스템을 구현했습니다.",
+      "id": "gammaru-sample",
+      "title": "Gammaru Sample",
+      "description": "대학교 게임개발 동아리 '겜마루'에서 제작한 샘플 프로젝트입니다.",
       "tags": [
         "Unity",
         "C#",
-        "3D 모델링"
+        "Game Development"
       ],
-      "image": "images/projects/fantasy-adventure.jpg",
+      "image": "images/projects/gammaru-sample.jpg",
       "demoLink": "#",
-      "codeLink": "#"
+      "codeLink": "https://github.com/godekd3133/GammaruSample"
     },
     {
-      "id": "space-defender",
-      "title": "스페이스 디펜더",
-      "description": "우주를 배경으로 한 슈팅 게임으로, 적 우주선의 공격을 막아내며 점수를 쌓는 게임입니다. 다양한 무기 시스템과 보스 전투를 구현했습니다.",
+      "id": "dangun-myth",
+      "title": "DangunMyth",
+      "description": "대학교 팀원들과 함께 개발한 JavaScript 기반 프로젝트입니다. 한국 신화를 주제로 한 콘텐츠를 담고 있습니다.",
       "tags": [
-        "Unreal Engine",
+        "JavaScript",
+        "Team Project",
+        "Web Development"
+      ],
+      "image": "images/projects/dangun-myth.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/DangunMyth"
+    },
+    {
+      "id": "codey",
+      "title": "Codey",
+      "description": "Python으로 개발된 프로젝트로, AI 관련 응용 프로그램입니다.",
+      "tags": [
+        "Python",
+        "AI",
+        "Machine Learning"
+      ],
+      "image": "images/projects/codey.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/Codey"
+    },
+    {
+      "id": "unity-framework",
+      "title": "Unity Framework",
+      "description": "유니티 게임 개발을 위한 프레임워크로, 효율적인 게임 개발 프로세스를 위한 다양한 도구와 시스템을 포함하고 있습니다.",
+      "tags": [
+        "Unity",
+        "C#",
+        "Game Development",
+        "Framework"
+      ],
+      "image": "images/projects/unity-framework.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/UnityFramework"
+    },
+    {
+      "id": "shooting-game",
+      "title": "Shooting Game Example",
+      "description": "유니티를 사용한 슈팅 게임 예제로, 슈팅 게임 메커니즘과 기본 구조를 보여주는 샘플 프로젝트입니다. 포스팅에서 설명한 게임의 소스 코드입니다.",
+      "tags": [
+        "Unity",
+        "C#",
+        "Game Development",
+        "2D"
+      ],
+      "image": "images/projects/shooting-game.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/ShootingGameExample"
+    },
+    {
+      "id": "my-data-container-system",
+      "title": "MY Data Container System",
+      "description": "데이터 관리를 위한 컨테이너 시스템 프로젝트입니다. 효율적인 데이터 처리와 관리를 위한 구조를 제공합니다.",
+      "tags": [
+        "Data Structure",
+        "C#",
+        "System Design"
+      ],
+      "image": "images/projects/my-data-container.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/MYDataContainerSystem"
+    },
+    {
+      "id": "mtalk-project",
+      "title": "MTalk Project",
+      "description": "TCP 프로토콜을 사용한 채팅 프로그램 프로젝트입니다. 네트워크 통신과 멀티스레딩을 활용한 실시간 메시징 시스템을 구현했습니다.",
+      "tags": [
+        "C#",
+        "TCP/IP",
+        "Network Programming"
+      ],
+      "image": "images/projects/mtalk.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/MTalkProject"
+    },
+    {
+      "id": "mtalk",
+      "title": "MTalk",
+      "description": "MTalkProject의 기본 버전으로, TCP 기반 채팅 프로그램의 코어 기능을 포함하고 있습니다.",
+      "tags": [
+        "C#",
+        "TCP/IP",
+        "Chat Application"
+      ],
+      "image": "images/projects/mtalk-basic.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/MTalk"
+    },
+    {
+      "id": "bolt",
+      "title": "Bolt",
+      "description": "C#으로 개발된 프로젝트로, 고성능 프로그래밍을 위한 도구를 제공합니다.",
+      "tags": [
+        "C#",
+        "Performance",
+        "Utilities"
+      ],
+      "image": "images/projects/bolt.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/Bolt"
+    },
+    {
+      "id": "blacksmith-project",
+      "title": "BlackSmith Project",
+      "description": "C#으로 개발된 게임 프로젝트로, 대장장이 테마의 게임 메커니즘을 구현했습니다.",
+      "tags": [
+        "C#",
+        "Unity",
+        "Game Development"
+      ],
+      "image": "images/projects/blacksmith.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/BlackSmith-Project"
+    },
+    {
+      "id": "the-boring",
+      "title": "The Boring",
+      "description": "C#으로 개발된 창의적인 게임 프로젝트입니다.",
+      "tags": [
+        "C#",
+        "Unity",
+        "Game Design"
+      ],
+      "image": "images/projects/the-boring.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/TheBoring"
+    },
+    {
+      "id": "defense-game",
+      "title": "Defense Game",
+      "description": "C#으로 개발된 타워 디펜스 게임으로, 다양한 타워와 적 유닛 그리고 자원 관리 시스템을 구현했습니다.",
+      "tags": [
+        "C#",
+        "Unity",
+        "Game Development",
+        "Strategy"
+      ],
+      "image": "images/projects/defense-game.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/DefenseGame"
+    },
+    {
+      "id": "dx9-worldskill-busan",
+      "title": "DX9 WorldSkill Practice Busan",
+      "description": "2020 전국기능경기대회 부산 문제를 연습한 프로젝트입니다. DirectX9을 활용한 그래픽 프로그래밍을 보여줍니다.",
+      "tags": [
+        "DirectX9",
         "C++",
-        "블루프린트"
+        "Graphics",
+        "Competition"
       ],
-      "image": "images/projects/space-defender.jpg",
+      "image": "images/projects/dx9-worldskill-busan.jpg",
       "demoLink": "#",
-      "codeLink": "#"
+      "codeLink": "https://github.com/godekd3133/DX9_WorldSkill_Practice_Busan_01"
     },
     {
-      "id": "puzzle-mania",
-      "title": "퍼즐 매니아",
-      "description": "모바일 퍼즐 게임으로, 다양한 레벨의 퍼즐을 해결하며 진행하는 캐주얼 게임입니다. 중독성 있는 게임플레이와 진행 시스템을 구현했습니다.",
+      "id": "dx9-worldskill-gyeonggi",
+      "title": "DX9 WorldSkill Practice Gyeonggi",
+      "description": "2020 전국기능경기대회 경기도 문제를 연습한 프로젝트입니다. DirectX9을 활용한 그래픽 프로그래밍을 보여줍니다.",
       "tags": [
-        "Unity",
-        "C#",
-        "2D 아트"
+        "DirectX9",
+        "C++",
+        "Graphics",
+        "Competition"
       ],
-      "image": "images/projects/puzzle-mania.jpg",
+      "image": "images/projects/dx9-worldskill-gyeonggi.jpg",
       "demoLink": "#",
-      "codeLink": "#"
+      "codeLink": "https://github.com/godekd3133/DX9_WorldSkill_Practice_Gyeonggi_01"
+    },
+    {
+      "id": "morbido",
+      "title": "Morbido",
+      "description": "C#으로 개발된 게임 프로젝트입니다.",
+      "tags": [
+        "C#",
+        "Unity",
+        "Game Development"
+      ],
+      "image": "images/projects/morbido.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/Morbido"
+    },
+    {
+      "id": "directx9-algorythm-bsp",
+      "title": "DirectX9 Algorithm BSP",
+      "description": "BSP(Binary Space Partitioning) 절차적 맵 생성 알고리즘을 구현한 프로젝트입니다. DirectX9을 활용하여 시각화했습니다.",
+      "tags": [
+        "DirectX9",
+        "C++",
+        "Algorithm",
+        "Procedural Generation"
+      ],
+      "image": "images/projects/directx9-bsp.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/DirectX9_Algorythm_BSP"
+    },
+    {
+      "id": "directx9-algorythm-astar",
+      "title": "DirectX9 Algorithm A*",
+      "description": "A* 길찾기 알고리즘을 구현한 프로젝트입니다. DirectX9을 활용하여 시각화했습니다.",
+      "tags": [
+        "DirectX9",
+        "C++",
+        "Algorithm",
+        "Pathfinding"
+      ],
+      "image": "images/projects/directx9-astar.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/DirectX9_Algorythm_AStar"
+    },
+    {
+      "id": "directx9-2d-astar-practice",
+      "title": "DirectX9 2D A* Practice",
+      "description": "2D 환경에서 A* 길찾기 알고리즘을 연습한 프로젝트입니다. DirectX9을 활용하여 시각화했습니다.",
+      "tags": [
+        "DirectX9",
+        "C++",
+        "Algorithm",
+        "2D"
+      ],
+      "image": "images/projects/directx9-2d-astar.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/DirectX9_2D_AStarPractice"
+    },
+    {
+      "id": "cpp-algorythm-linkedlist",
+      "title": "C++ Algorithm Linkedlist",
+      "description": "STL list 컨테이너를 직접 구현한 프로젝트입니다. 링크드 리스트 자료구조의 동작 방식을 보여줍니다.",
+      "tags": [
+        "C++",
+        "Data Structure",
+        "Algorithm"
+      ],
+      "image": "images/projects/cpp-linkedlist.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/Cpp_Algorythm_Linkedlist"
+    },
+    {
+      "id": "under-watch",
+      "title": "DX9 3D UnderWatch",
+      "description": "2019년 12월에 전공 수행평가로 제작한 3D 게임 프로젝트입니다. DirectX9을 사용한 3D 게임 개발을 보여줍니다.",
+      "tags": [
+        "DirectX9",
+        "C++",
+        "Game Development",
+        "3D"
+      ],
+      "image": "images/projects/under-watch.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/DX9_3D_UnderWatch"
+    },
+    {
+      "id": "direct3d-framework",
+      "title": "Direct3D Framework",
+      "description": "Direct3D를 활용한 3D 렌더링 프레임워크를 구현한 프로젝트입니다.",
+      "tags": [
+        "DirectX",
+        "C++",
+        "3D",
+        "Framework"
+      ],
+      "image": "images/projects/direct3d-framework.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/Direct3D_FrameWork"
+    },
+    {
+      "id": "cookie-run",
+      "title": "DirectX9 2D Cookie Run",
+      "description": "쿠키런: 오븐브레이크를 DirectX9을 사용하여 모작한 프로젝트입니다. 2D 게임 로직과 렌더링을 구현했습니다.",
+      "tags": [
+        "DirectX9",
+        "C++",
+        "Game Development",
+        "2D"
+      ],
+      "image": "images/projects/cookie-run.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/DirectX9_2D_CookieRun"
+    },
+    {
+      "id": "directx9-2d-framework",
+      "title": "DirectX9 2D Framework",
+      "description": "DirectX9을 활용한 2D 게임 개발 프레임워크를 구현한 프로젝트입니다.",
+      "tags": [
+        "DirectX9",
+        "C++",
+        "2D",
+        "Framework"
+      ],
+      "image": "images/projects/directx9-2d-framework.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/DirectX9_2D_FrameWork"
+    },
+    {
+      "id": "my-aquarium",
+      "title": "My Aquarium",
+      "description": "2학년 프로그래밍 수행평가로 제작한 프로젝트입니다. 가상 수족관 시뮬레이션을 구현했습니다.",
+      "tags": [
+        "C++",
+        "Simulation",
+        "Graphics"
+      ],
+      "image": "images/projects/my-aquarium.jpg",
+      "demoLink": "#",
+      "codeLink": "https://github.com/godekd3133/MyAquarium"
     }
   ]
 }
