@@ -1,0 +1,74 @@
+{
+  "companies": [
+    {
+      "name": "Bagelcode",
+      "period": "2022 - Present",
+      "projects": [
+        {
+          "title": "Club Vegas Casino Game",
+          "tags": ["Node.js", "AWS", "Unity"],
+          "image": "images/work/clubvegas.jpg",
+          "role": "Backend Engineer",
+          "responsibilities": [
+            "Developed backend services for casino game mechanics",
+            "Implemented secure payment and rewards systems",
+            "Optimized database performance for millions of users",
+            "Created REST APIs for game functionality and user management"
+          ],
+          "note": "Due to company policy, code and live demo cannot be shared publicly."
+        },
+        {
+          "title": "Jackpot World Slots",
+          "tags": ["AWS", "MongoDB", "CI/CD"],
+          "image": "images/work/jackpotworld.jpg",
+          "role": "Senior Backend Developer",
+          "responsibilities": [
+            "Architected scalable microservices for game operations",
+            "Led implementation of social features and tournaments",
+            "Built analytics systems to track and optimize game performance",
+            "Improved service reliability with automated testing and monitoring"
+          ],
+          "note": "Due to company policy, code and live demo cannot be shared publicly."
+        }
+      ]
+    },
+    {
+      "name": "GameStudio Inc.",
+      "period": "2019 - 2022",
+      "projects": [
+        {
+          "title": "Fantasy RPG Mobile Game",
+          "tags": ["Node.js", "Redis", "Socket.io"],
+          "image": "images/work/fantasyrpg.jpg",
+          "role": "Game Server Developer",
+          "responsibilities": [
+            "Developed real-time multiplayer systems and matchmaking services",
+            "Created inventory and item management systems",
+            "Implemented in-game chat and social features",
+            "Built server-side game logic for combat and quest systems"
+          ],
+          "note": "Due to company policy, code and live demo cannot be shared publicly."
+        }
+      ]
+    },
+    {
+      "name": "Mobile Games Ltd.",
+      "period": "2017 - 2019",
+      "projects": [
+        {
+          "title": "Puzzle Adventure Game",
+          "tags": ["React", "Express.js", "Firebase"],
+          "image": "images/work/puzzleadventure.jpg",
+          "role": "Frontend Developer",
+          "responsibilities": [
+            "Developed responsive UI for game companion website",
+            "Built leaderboard and user profile systems",
+            "Created interactive tutorials and help center",
+            "Implemented analytics dashboard for game metrics"
+          ],
+          "note": "Due to company policy, code and live demo cannot be shared publicly."
+        }
+      ]
+    }
+  ]
+}

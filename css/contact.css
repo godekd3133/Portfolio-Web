@@ -44,9 +44,10 @@
     margin-bottom: 0;
 }
 
-.contact-text a {
+.contact-text p a {
     color: var(--primary-light);
     transition: color var(--transition-fast);
+    word-break: break-all; /* 긴 이메일 주소가 박스를 벗어나지 않도록 */
 }
 
 .contact-text a:hover {

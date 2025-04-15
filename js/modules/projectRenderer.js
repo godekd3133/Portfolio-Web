@@ -2,7 +2,7 @@
  * 프로젝트, 게임, 기술 렌더링 관련 기능을 담당하는 모듈
  */
 
-import { loadProjects, loadGames, loadSkills } from './dataLoader.js';
+import { loadProjects, loadGames, loadSkills, loadWorkExperience } from './dataLoader.js';
 
 // 프로젝트 HTML 생성
 function createProjectHTML(project) {
@@ -126,11 +126,61 @@ async function renderSkills() {
     `).join('');
 }
 
+// 회사 경력 렌더링
+async function renderWorkExperience() {
+    const workExpContainer = document.querySelector('.work-exp-timeline');
+    if (!workExpContainer) return;
+    
+    const companies = await loadWorkExperience();
+    
+    if (companies.length === 0) {
+        workExpContainer.innerHTML = '<p>표시할 회사 경력이 없습니다.</p>';
+        return;
+    }
+    
+    workExpContainer.innerHTML = companies.map(company => `
+        <div class="work-exp-item">
+            <div class="work-exp-company">
+                <h3>${company.name}</h3>
+                <span class="work-exp-date">${company.period}</span>
+            </div>
+            
+            <div class="work-exp-projects">
+                ${company.projects.map(project => `
+                    <div class="work-project">
+                        <div class="work-project-header">
+                            <h4>${project.title}</h4>
+                            <div class="work-project-tags">
+                                ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div class="work-project-content">
+                            <div class="work-project-image">
+                                <img src="${project.image}" alt="${project.title}" onerror="this.src='images/projects/placeholder.jpg'">
+                            </div>
+                            <div class="work-project-description">
+                                <h5>Role: ${project.role}</h5>
+                                <ul class="feature-list">
+                                    ${project.responsibilities.map(resp => `<li><i class="fas fa-check"></i> ${resp}</li>`).join('')}
+                                </ul>
+                                <div class="work-project-notes">
+                                    <p><strong>Note:</strong> ${project.note}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `).join('');
+}
+
 // 모든 컨텐츠 렌더링 초기화
 function initRenderers() {
     renderProjects();
     renderFeaturedGame();
     renderSkills();
+    renderWorkExperience();
 }
 
 export { initRenderers };

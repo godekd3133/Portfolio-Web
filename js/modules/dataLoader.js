@@ -47,4 +47,19 @@ async function loadSkills() {
     }
 }
 
-export { loadProjects, loadGames, loadSkills };
+// 회사 경력 데이터 로드
+async function loadWorkExperience() {
+    try {
+        const response = await fetch('data/work-experience.json');
+        if (!response.ok) {
+            throw new Error('회사 경력 데이터를 불러오는데 실패했습니다.');
+        }
+        const data = await response.json();
+        return data.companies;
+    } catch (error) {
+        console.error('회사 경력 로드 에러:', error);
+        return [];
+    }
+}
+
+export { loadProjects, loadGames, loadSkills, loadWorkExperience };
