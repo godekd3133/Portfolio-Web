@@ -39,10 +39,10 @@ async function loadAllComponents() {
 
     const mainContentComponents = [
         'components/about.html',
+        'components/resume.html',
         'components/projects.html',
         'components/featured-games.html',
         'components/skills.html',
-        'components/resume.html',
         'components/contact.html'
     ];
 
