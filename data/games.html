@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Game JSON Editor</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px;
+}
+    input, textarea { width: 100%; margin-bottom: 10px;
+}
+    .feature-item { display: flex; margin-bottom: 5px;
+}
+    .feature-item input { flex: 1;
+}
+    .feature-item button { margin-left: 5px;
+}
+    #jsonOutput { white-space: pre-wrap; background: #f4f4f4; padding: 10px; border: 1px solid #ccc;
+}
+  </style>
+</head>
+<body>
+  <h1>🕹️ Game JSON 시각화 에디터</h1>
+  <form id="editorForm">
+    <label>제목 <input id="title" /></label>
+    <label>설명 <textarea id="description" rows="3"></textarea></label>
+    <label>이미지 경로 <input id="image" /></label>
+    <label>트레일러 링크 <input id="trailerLink" /></label>
+    <label>개발 과정 링크 <input id="devProcessLink" /></label>
+    <label>게임플레이 비디오 <input id="gameplayVideo" /></label>
+    <label>특징들</label>
+    <div id="featuresContainer"></div>
+    <button type="button" onclick="addFeature()">+ 특징 추가</button>
+  </form>
+  <h2>📄 JSON 결과</h2>
+  <pre id="jsonOutput"></pre>
+
+  <script>
+    const data = {
+      featuredGame: {
+        id: "fantasy-adventure-kingdom",
+        title: "판타지 어드벤처: 잊혀진 왕국",
+        description: "몰입감 있는 오픈 월드를 배경으로 한 다양한 퀘스트와 전투 시스템, 캐릭터 성장을 경험할 수 있는 대규모 RPG 게임입니다.",
+        features: [
+      "광활한 오픈 월드 맵",
+      "100개 이상의 퀘스트",
+      "실시간 전투 시스템",
+      "다양한 NPC 및 몬스터",
+      "날씨 및 시간 시스템"
+    ],
+        image: "images/games/featured-game.jpg",
+        trailerLink: "#",
+        devProcessLink: "#",
+        gameplayVideo: "images/games/gameplay-video.mp4"
+  }
+};
+
+    function renderForm() {
+      document.getElementById('title').value = data.featuredGame.title;
+      document.getElementById('description').value = data.featuredGame.description;
+      document.getElementById('image').value = data.featuredGame.image;
+      document.getElementById('trailerLink').value = data.featuredGame.trailerLink;
+      document.getElementById('devProcessLink').value = data.featuredGame.devProcessLink;
+      document.getElementById('gameplayVideo').value = data.featuredGame.gameplayVideo;
+
+      const featuresContainer = document.getElementById('featuresContainer');
+      featuresContainer.innerHTML = '';
+      data.featuredGame.features.forEach((feature, i) => {
+        const div = document.createElement('div');
+        div.className = 'feature-item';
+        div.innerHTML = `<input value="${feature}" oninput="updateFeature(${i}, this.value)" />
+                         <button onclick="removeFeature(${i})">🗑</button>`;
+        featuresContainer.appendChild(div);
+  });
+
+      updateOutput();
+}
+
+    function updateFeature(index, value) {
+      data.featuredGame.features[index
+  ] = value;
+      updateOutput();
+}
+
+    function removeFeature(index) {
+      data.featuredGame.features.splice(index,
+  1);
+      renderForm();
+}
+
+    function addFeature() {
+      data.featuredGame.features.push('');
+      renderForm();
+}
+
+    document.querySelectorAll('#editorForm input, #editorForm textarea').forEach(input => {
+      input.addEventListener('input', () => {
+        data.featuredGame.title = document.getElementById('title').value;
+        data.featuredGame.description = document.getElementById('description').value;
+        data.featuredGame.image = document.getElementById('image').value;
+        data.featuredGame.trailerLink = document.getElementById('trailerLink').value;
+        data.featuredGame.devProcessLink = document.getElementById('devProcessLink').value;
+        data.featuredGame.gameplayVideo = document.getElementById('gameplayVideo').value;
+        updateOutput();
+  });
+});
+
+    function updateOutput() {
+      document.getElementById('jsonOutput').textContent = JSON.stringify(data,
+  null,
+  2);
+}
+
+    renderForm();
+  </script>
+</body>
+</html>

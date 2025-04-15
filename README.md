@@ -15,73 +15,156 @@ Amazon S3를 이용한 정적 웹사이트로 구성되어 있습니다.
 
 - HTML5
 - CSS3
-- JavaScript (바닐라)
+- JavaScript (ES 모듈)
 - JSON 데이터 관리
 
 ## 디렉토리 구조
 
 ```
 Portfolio-Web/
-├── index.html           # 메인 페이지
-├── css/                 # 스타일시트
-│   └── styles.css
-├── js/                  # 자바스크립트
-│   ├── main.js          # 메인 스크립트
-│   └── projects.js      # 프로젝트 관련 스크립트  
-├── data/                # 데이터 파일들
-│   ├── projects.json    # 프로젝트 정보
-│   ├── skills.json      # 기술 스택 정보
-│   └── games.json       # 게임 정보
-├── images/              # 이미지 파일들
-│   ├── projects/        # 프로젝트 이미지
-│   ├── games/           # 게임 이미지
-│   └── profile/         # 프로필 이미지
-└── admin/               # 관리자 페이지 (선택적)
+└── src/
+    ├── index.html               # 메인 HTML 파일
+    ├── assets/                  # 정적 자산 파일
+    │   └── images/              # 이미지 파일
+    │       ├── projects/        # 프로젝트 이미지
+    │       ├── games/           # 게임 이미지
+    │       └── profile/         # 프로필 이미지
+    ├── components/              # HTML 컴포넌트
+    │   ├── header/              # 헤더 관련 컴포넌트
+    │   ├── projects/            # 프로젝트 섹션 컴포넌트
+    │   ├── games/               # 게임 섹션 컴포넌트
+    │   ├── skills/              # 기술 스택 섹션 컴포넌트
+    │   ├── contact/             # 연락처 섹션 컴포넌트
+    │   └── footer/              # 푸터 컴포넌트
+    ├── css/                     # 스타일시트
+    │   ├── main.css             # 메인 CSS (모듈 임포트)
+    │   ├── reset.css            # 기본 스타일 및 리셋
+    │   ├── header.css           # 헤더 스타일
+    │   ├── projects.css         # 프로젝트 섹션 스타일
+    │   ├── games.css            # 게임 섹션 스타일
+    │   ├── skills.css           # 기술 스택 섹션 스타일
+    │   ├── contact.css          # 연락처 섹션 스타일
+    │   └── footer.css           # 푸터 스타일
+    ├── js/                      # 자바스크립트
+    │   ├── app.js               # 메인 애플리케이션 스크립트
+    │   ├── utils/               # 유틸리티 함수
+    │   │   ├── dataLoader.js    # 데이터 로드 유틸리티
+    │   │   └── lazyLoad.js      # 이미지 지연 로딩 유틸리티
+    │   └── modules/             # 기능별 모듈
+    │       ├── navigation.js    # 내비게이션 관련 모듈
+    │       ├── projects.js      # 프로젝트 렌더링 모듈
+    │       ├── games.js         # 게임 렌더링 모듈
+    │       ├── skills.js        # 기술 스택 렌더링 모듈
+    │       └── contact.js       # 연락처 폼 처리 모듈
+    └── data/                    # 데이터 파일
+        ├── projects.json        # 프로젝트 정보
+        ├── games.json           # 게임 정보
+        ├── skills.json          # 기술 스택 정보
+        └── config.json          # 사이트 설정 정보
 ```
 
-## 프로젝트 편집 방법
+## 데이터 편집 방법
 
-1. 프로젝트 추가/수정
-   - `data/projects.json` 파일을 편집하여 프로젝트 정보 변경
-   - 이미지는 `images/projects/` 디렉토리에 추가
+프로젝트 정보는 모두 JSON 파일로 분리되어 있어 쉽게 편집할 수 있습니다:
 
-2. 게임 정보 수정
-   - `data/games.json` 파일을 편집하여 게임 정보 변경
-   - 이미지 및 비디오는 `images/games/` 디렉토리에 추가
+1. **프로젝트 추가/수정**
+   - `src/data/projects.json` 파일을 편집하여 프로젝트 정보 업데이트
+   - 형식:
+     ```json
+     {
+       "projects": [
+         {
+           "id": "project-id",
+           "title": "프로젝트 제목",
+           "description": "프로젝트 설명",
+           "tags": ["태그1", "태그2"],
+           "image": "assets/images/projects/image.jpg",
+           "demoLink": "#",
+           "codeLink": "#"
+         }
+       ]
+     }
+     ```
 
-3. 기술 스택 수정
-   - `data/skills.json` 파일을 편집하여 기술 스택 정보 변경
+2. **게임 정보 수정**
+   - `src/data/games.json` 파일 편집
+   - 형식:
+     ```json
+     {
+       "featuredGame": {
+         "id": "game-id",
+         "title": "게임 제목",
+         "description": "게임 설명",
+         "features": ["특징1", "특징2"],
+         "image": "assets/images/games/image.jpg",
+         "trailerLink": "#",
+         "devProcessLink": "#",
+         "gameplayVideo": "assets/images/games/video.mp4"
+       }
+     }
+     ```
+
+3. **기술 스택 수정**
+   - `src/data/skills.json` 파일 편집
+   - 형식:
+     ```json
+     {
+       "categories": [
+         {
+           "name": "카테고리명",
+           "skills": [
+             { "name": "기술명", "level": 90 }
+           ]
+         }
+       ]
+     }
+     ```
+
+4. **사이트 기본 정보 수정**
+   - `src/data/config.json` 파일 편집
+   - 형식:
+     ```json
+     {
+       "site": {
+         "title": "사이트 제목",
+         "author": "제작자 이름",
+         "description": "사이트 설명",
+         "email": "연락 이메일"
+       }
+     }
+     ```
 
 ## 로컬에서 실행하기
 
-간단히 웹 서버를 사용하여 실행 가능합니다:
-
-```
-# Python을 이용한 간단한 웹 서버
+```bash
+# 로컬 서버 실행 (Python 사용)
+cd src
 python -m http.server
 
-# 또는 VS Code의 Live Server 확장 사용
+# 또는 Node.js 서버 사용
+npx serve src
 ```
 
-## Amazon S3에 배포하기
+## S3 배포하기
 
 1. AWS S3 버킷 생성
-   - 정적 웹사이트 호스팅 옵션을 활성화
-   - 퍼블릭 액세스 설정 구성
+   - 정적 웹사이트 호스팅 활성화
+   - 퍼블릭 액세스 허용 설정
 
-2. 웹사이트 파일 업로드
-   - 모든 파일을 S3 버킷에 업로드
-   - 파일 권한을 퍼블릭으로 설정
+2. `src` 폴더 내의 모든 파일 업로드
+   ```bash
+   aws s3 sync src/ s3://your-bucket-name/ --acl public-read
+   ```
 
-3. 배포 확인
-   - S3에서 제공하는 웹사이트 엔드포인트 확인
-   - 배포된 사이트 테스트
+3. S3 웹사이트 URL 접속 확인
 
-## 참고
+## 최적화 정보
 
-- 이 프로젝트는 데이터와 프론트엔드 코드가 분리되어 있어, 코드 수정 없이도 데이터만 변경하여 사이트 내용을 쉽게 업데이트할 수 있습니다.
-- 백엔드 없이 순수 프론트엔드만으로 구동되는 정적 사이트입니다.
-- 연락처 폼은 이메일 클라이언트를 통해 메시지를 전송합니다.
+- 모듈화된 구조로 유지보수 용이
+- 지연 로딩으로 초기 로드 시간 단축
+- JSON 데이터 분리로 컨텐츠 관리 간소화
+- 컴포넌트별 CSS 분리로 성능 개선
+- ES 모듈 시스템으로 코드 구조화
 
 ## 라이센스
 MIT

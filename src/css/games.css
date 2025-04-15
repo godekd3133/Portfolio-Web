@@ -1,0 +1,68 @@
+/* 게임 쇼케이스 섹션 */
+.game-showcase {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-video {
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    background-color: #000;
+    height: 0;
+    padding-bottom: 56.25%;  /* 16:9 비율 */
+    position: relative;
+}
+
+.game-video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+.featured-game {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+    .featured-game {
+        flex-direction: row;
+    }
+}
+
+.featured-game-info {
+    flex: 1;
+}
+
+.featured-game-info ul {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.featured-game-info li {
+    margin-bottom: 0.3rem;
+}
+
+.featured-game-image {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    background-color: #222;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

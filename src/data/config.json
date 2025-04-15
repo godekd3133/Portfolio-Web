@@ -1,0 +1,21 @@
+{
+  "site": {
+    "title": "게임 개발자 포트폴리오",
+    "author": "김민규",
+    "description": "게임 개발자 | 3D 아티스트",
+    "email": "your-email@example.com",
+    "social": {
+      "github": "#",
+      "linkedin": "#",
+      "twitter": "#",
+      "artstation": "#"
+    }
+  },
+  "navigation": [
+    { "name": "소개", "anchor": "#about" },
+    { "name": "프로젝트", "anchor": "#projects" },
+    { "name": "게임", "anchor": "#games" },
+    { "name": "기술 스택", "anchor": "#skills" },
+    { "name": "연락처", "anchor": "#contact" }
+  ]
+}

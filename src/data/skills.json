@@ -1,0 +1,30 @@
+{
+  "categories": [
+    {
+      "name": "게임 엔진",
+      "skills": [
+        { "name": "Unity", "level": 95 },
+        { "name": "Unreal Engine", "level": 85 },
+        { "name": "Godot", "level": 70 }
+      ]
+    },
+    {
+      "name": "프로그래밍",
+      "skills": [
+        { "name": "C#", "level": 90 },
+        { "name": "C++", "level": 80 },
+        { "name": "JavaScript", "level": 75 },
+        { "name": "TypeScript", "level": 85 }
+      ]
+    },
+    {
+      "name": "아트 & 디자인",
+      "skills": [
+        { "name": "Blender", "level": 80 },
+        { "name": "Maya", "level": 75 },
+        { "name": "Photoshop", "level": 85 },
+        { "name": "ZBrush", "level": 70 }
+      ]
+    }
+  ]
+}

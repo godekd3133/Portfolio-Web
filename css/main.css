@@ -1,0 +1,14 @@
+/* 기본 스타일 */
+@import 'base.css';
+
+/* 컴포넌트 스타일 */
+@import 'components/header.css';
+@import 'components/navigation.css';
+@import 'components/projects.css';
+@import 'components/games.css';
+@import 'components/skills.css';
+@import 'components/contact.css';
+@import 'components/footer.css';
+
+/* 페이지별 스타일 */
+@import 'pages/about.css';
