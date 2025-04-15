@@ -1,22 +1,57 @@
 <header class="header">
     <div class="header-bg"></div>
+    <!-- 배경 원형 효과 -->
+    <div class="header-particles">
+        <div class="header-circle"></div>
+        <div class="header-circle"></div>
+        <div class="header-circle"></div>
+    </div>
+    
     <div class="header-content">
-        <div class="profile-container">
+        <p class="header-tagline">Software Developer & Game Creator</p>
+        
+        <!-- 3D 프로필 이미지 컨테이너 -->
+        <div class="profile-image-container">
             <div class="profile-image">
                 <div class="profile-image-placeholder">MK</div>
-            </div>
-            <div class="profile-text">
-                <h1>Minkyu Kim</h1>
-                <div class="title-animation">
-                    <span class="title-text">Software Engineer</span>
-                    <span class="title-text">Game Developer</span>
-                    <span class="title-text">Creative Technologist</span>
-                </div>
+                <!-- 반짝이는 효과 -->
+                <div class="profile-glow"></div>
+                <div class="profile-glow"></div>
+                <div class="profile-glow"></div>
             </div>
         </div>
+        
+        <!-- 3D 텍스트 효과 -->
+        <h1 class="header-title" data-text="Minkyu Kim">Minkyu Kim</h1>
+        
+        <p class="header-subtitle">Creative software engineer and game developer with a passion for building immersive digital experiences and innovative solutions.</p>
+        
+        <!-- 향상된 CTA 버튼 -->
         <div class="header-cta">
-            <a href="#contact" class="btn btn-primary">Contact Me</a>
-            <a href="#resume" class="btn btn-secondary">View Resume</a>
+            <a href="#contact" class="cta-button cta-button-primary">
+                <i class="fas fa-envelope cta-icon"></i>
+                <span>Contact Me</span>
+            </a>
+            <a href="#resume" class="cta-button cta-button-secondary">
+                <i class="fas fa-file-alt cta-icon"></i>
+                <span>View Resume</span>
+            </a>
+        </div>
+        
+        <!-- 소셜 미디어 아이콘 -->
+        <div class="header-social">
+            <a href="https://github.com/godekd3133?tab=repositories" target="_blank" class="social-icon">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/%EB%AF%BC%EA%B7%9C-%EA%B9%80-187707327/" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="tel:+821099753133" class="social-icon">
+                <i class="fas fa-phone-alt"></i>
+            </a>
         </div>
     </div>
+    
+    <!-- 스크롤 다운 인디케이터 -->
+    <div class="scroll-indicator"></div>
 </header>
