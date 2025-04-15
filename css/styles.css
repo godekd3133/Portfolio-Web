@@ -1,3 +1,6 @@
+/* 회사 프로젝트 섹션 스타일 */
+@import url('work-experience.css');
+
 /**
  * 메인 CSS 파일
  * 모든 컴포넌트 CSS 파일을 가져와서 통합합니다

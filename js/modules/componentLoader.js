@@ -40,6 +40,7 @@ async function loadAllComponents() {
     const mainContentComponents = [
         'components/about.html',
         'components/resume.html',
+        'components/work-experience.html',
         'components/projects.html',
         'components/featured-games.html',
         'components/skills.html',
