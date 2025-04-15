@@ -1,43 +1,34 @@
-name: Deploy Portfolio Website
+name: Deploy to S3
 
 on:
   push:
-    branches:
-      - main  # main 브랜치에 푸시될 때 실행됩니다. 필요에 따라 변경하세요.
+    branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'  # 필요한 Node.js 버전으로 변경하세요
-      
-      - name: Install dependencies
-        run: npm install
-      
-      - name: Build TypeScript
-        run: npm run build  # package.json의 build 스크립트를 실행합니다
-      
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-2  # 사용 중인 AWS 리전으로 변경하세요
-      
-      - name: Deploy to S3
-        run: |
-          aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
-      
-      - name: Invalidate CloudFront Distribution (Optional)
-        if: ${{ env.CLOUDFRONT_DISTRIBUTION_ID != '' && env.CLOUDFRONT_DISTRIBUTION_ID != null }}
-        env:
-          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-        run: |
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+    - name: Checkout source
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Upload frontend/static files to S3
+      run: |
+        aws s3 sync . s3://${{ secrets.S3_BUCKET }} \
+          --delete \
+          --exclude ".git/*" \
+          --exclude ".github/*" \
+          --exclude "backend/*"
+
+    - name: Invalidate CloudFront cache
+      run: |
+        aws cloudfront create-invalidation \
+          --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+          --paths "/*"
