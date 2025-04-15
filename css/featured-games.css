@@ -1,0 +1,118 @@
+/* ==== FEATURED GAMES SECTION ==== */
+.featured-game {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    align-items: center;
+}
+
+.featured-game-image {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    aspect-ratio: 16/9;
+}
+
+.featured-game-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.featured-game-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    color: var(--gray-text);
+}
+
+.featured-game-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--light-text);
+}
+
+.featured-game-info p {
+    color: var(--gray-text);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.featured-game-details h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--light-text);
+}
+
+.feature-list {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.feature-list li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+}
+
+.feature-list i {
+    color: var(--success-color);
+    font-size: 1rem;
+}
+
+.featured-game-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.game-showcase {
+    margin-top: 4rem;
+}
+
+.game-showcase h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.game-video {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    aspect-ratio: 16/9;
+    margin: 0 auto;
+    max-width: 1000px;
+    background-color: #000;
+}
+
+.game-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.game-video-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-text);
+}
+
+/* 모바일 반응형 */
+@media (max-width: 992px) {
+    .featured-game {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .featured-game-actions {
+        justify-content: center;
+    }
+}

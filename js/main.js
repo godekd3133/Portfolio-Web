@@ -1,146 +1,41 @@
-// 헤더 스크롤 이벤트
-function initHeaderScroll() {
-    const header = document.querySelector('.main-navigation');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-}
+/**
+ * 메인 JavaScript 파일
+ * 모든 모듈을 가져와서 초기화합니다
+ */
+
+// 모듈 가져오기
+import { initNavigation } from './modules/navigation.js';
+import { initAnimations } from './modules/animations.js';
+import { initRenderers } from './modules/projectRenderer.js';
+import { lazyLoadImages } from './modules/utils.js';
+import { loadAllComponents } from './modules/componentLoader.js';
 
 // 페이지 로드 완료 시 실행
-document.addEventListener('DOMContentLoaded', () => {
-    // 스크롤 애니메이션
-    initSmoothScroll();
-    
-    // 섹션 등장 애니메이션
-    initSectionAnimation();
-    
-    // 프로젝트 카드 애니메이션
-    initProjectCards();
-    
-    // 헤더 스크롤 이벤트
-    initHeaderScroll();
-    
-    // 프리로더 제거
-    hidePreloader();
-});
-
-// 백 투 탑 버튼
-const backToTopButton = document.querySelector('.back-to-top');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-        backToTopButton.classList.add('show');
-    } else {
-        backToTopButton.classList.remove('show');
-    }
-});
-
-backToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// 부드러운 스크롤 기능
-function initSmoothScroll() {
-    const navLinks = document.querySelectorAll('.nav-links a');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            window.scrollTo({
-                top: targetElement.offsetTop - 70,
-                behavior: 'smooth'
-            });
-        });
-    });
-}
-
-// 섹션 등장 애니메이션
-function initSectionAnimation() {
-    const sections = document.querySelectorAll('section');
-    const options = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-    
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                sectionObserver.unobserve(entry.target);
-            }
-        });
-    }, options);
-    
-    sections.forEach(section => {
-        sectionObserver.observe(section);
-    });
-}
-
-// 프리로더 숨기기
-function hidePreloader() {
-    const preloader = document.querySelector('.preloader');
-    if (preloader) {
-        setTimeout(() => {
-            preloader.classList.add('hidden');
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 500);
-        }, 1000);
-    }
-}
-
-// 프로젝트 카드 애니메이션
-function initProjectCards() {
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px)';
-            this.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.4)';
-        });
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        // 컴포넌트 로드
+        await loadAllComponents();
         
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
-        });
-    });
-}
-
-// 페이지 스크롤 시 헤더 스타일 변경
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('.main-navigation');
-    const scrollPosition = window.scrollY;
-    
-    if (scrollPosition > 50) {
-        header.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
-        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
-    } else {
-        header.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
-        header.style.boxShadow = 'none';
+        // 네비게이션 기능 초기화
+        initNavigation();
+        
+        // 애니메이션 초기화
+        initAnimations();
+        
+        // 프로젝트, 게임, 기술 데이터 렌더링
+        initRenderers();
+        
+        // 이미지 지연 로딩
+        window.addEventListener('load', lazyLoadImages);
+        
+        console.log('포트폴리오 웹사이트가 성공적으로 초기화되었습니다.');
+    } catch (error) {
+        console.error('웹사이트 초기화 중 오류가 발생했습니다:', error);
     }
 });
 
-// 이미지 지연 로딩 (성능 최적화)
-function lazyLoadImages() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    images.forEach(img => {
-        img.setAttribute('src', img.getAttribute('data-src'));
-        img.onload = function() {
-            img.removeAttribute('data-src');
-        };
-    });
+// 모바일 디바이스 감지 및 최적화
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile) {
+    document.body.classList.add('mobile-device');
 }
-
-// 페이지 로드 후 이미지 로딩
-window.addEventListener('load', lazyLoadImages);
