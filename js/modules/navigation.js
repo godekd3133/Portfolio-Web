@@ -1,10 +1,12 @@
 /**
- * 네비게이션 관련 기능을 담당하는 모듈
+ * Module for navigation-related functionality
  */
 
-// 헤더 스크롤 이벤트
-function initHeaderScroll() {
-    const header = document.querySelector('.main-navigation');
+// Header scroll event
+function initHeaderScroll(): void {
+    const header = document.querySelector('.main-navigation') as HTMLElement;
+    if (!header) return;
+    
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -18,15 +20,17 @@ function initHeaderScroll() {
     });
 }
 
-// 부드러운 스크롤 기능
-function initSmoothScroll() {
+// Smooth scroll functionality
+function initSmoothScroll(): void {
     const navLinks = document.querySelectorAll('.nav-links a');
     
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function(this: HTMLAnchorElement, e: Event) {
             e.preventDefault();
             
             const targetId = this.getAttribute('href');
+            if (!targetId) return;
+            
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
@@ -39,8 +43,8 @@ function initSmoothScroll() {
     });
 }
 
-// 모바일 네비게이션 토글
-function initMobileNavigation() {
+// Mobile navigation toggle
+function initMobileNavigation(): void {
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
 
@@ -50,7 +54,7 @@ function initMobileNavigation() {
             navToggle.classList.toggle('active');
         });
 
-        // 모바일 메뉴 클릭 시 메뉴 닫기
+        // Close menu when mobile menu item is clicked
         const navItems = navLinks.querySelectorAll('a');
         navItems.forEach(item => {
             item.addEventListener('click', () => {
@@ -63,8 +67,8 @@ function initMobileNavigation() {
     }
 }
 
-// 백 투 탑 버튼
-function initBackToTop() {
+// Back to top button
+function initBackToTop(): void {
     const backToTopButton = document.querySelector('.back-to-top');
     
     if (backToTopButton) {
@@ -85,8 +89,8 @@ function initBackToTop() {
     }
 }
 
-// 초기화 함수
-function initNavigation() {
+// Initialization function
+function initNavigation(): void {
     initHeaderScroll();
     initSmoothScroll();
     initMobileNavigation();
