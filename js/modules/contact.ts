@@ -1,5 +1,5 @@
 /**
- * Contact Form Module
+ * Contact form handling module
  */
 
 /**

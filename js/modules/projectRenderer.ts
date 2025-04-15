@@ -22,8 +22,8 @@ interface Game {
     description: string;
     features: string[];
     image: string;
-    demoLink: string;
-    caseStudyLink: string;
+    trailerLink: string;
+    devProcessLink: string;
     gameplayVideo?: string;
 }
 
@@ -40,8 +40,8 @@ interface Skill {
 
 interface SkillCategory {
     name: string;
-    icon: string;
     skills: Skill[];
+    icon?: string; // icon 속성을 선택적(optional)으로 변경
 }
 
 // Work experience interfaces
@@ -58,6 +58,14 @@ interface Company {
     name: string;
     period: string;
     projects: WorkProject[];
+}
+
+interface WorkExperience {
+    company: string;
+    position: string;
+    duration: string;
+    description: string;
+    achievements: string[];
 }
 
 /**
@@ -109,8 +117,8 @@ function createGameHTML(game: Game): string {
                     </ul>
                 </div>
                 <div class="featured-game-actions">
-                    <a href="${game.demoLink}" class="btn btn-primary">Experience</a>
-                    <a href="${game.caseStudyLink}" class="btn btn-secondary">Case Study</a>
+                    <a href="${game.trailerLink}" class="btn btn-primary">Experience</a>
+                    <a href="${game.devProcessLink}" class="btn btn-secondary">Case Study</a>
                 </div>
             </div>
         </div>
@@ -126,7 +134,7 @@ function createSkillHTML(category: SkillCategory): string {
     return `
         <div class="skill-category animate-fade-in">
             <div class="skill-category-header">
-                <i class="fas fa-${category.icon}"></i>
+                ${category.icon ? `<i class="fas fa-${category.icon}"></i>` : ''}
                 <h3>${category.name}</h3>
             </div>
             <ul class="skill-list">
@@ -195,15 +203,15 @@ function createWorkExperienceHTML(company: Company): string {
 async function renderProjects(): Promise<void> {
     const projectsContainer = document.querySelector('.projects-grid');
     if (!projectsContainer) return;
-    
+
     try {
         const projects = await loadProjects();
-        
+
         if (projects.length === 0) {
             projectsContainer.innerHTML = '<p class="no-content">No projects to display.</p>';
             return;
         }
-        
+
         projectsContainer.innerHTML = projects.map(project => createProjectHTML(project)).join('');
     } catch (error) {
         console.error('Error rendering projects:', error);
@@ -218,18 +226,18 @@ async function renderProjects(): Promise<void> {
 async function renderFeaturedGame(): Promise<void> {
     const featuredGameContainer = document.querySelector('.featured-game');
     if (!featuredGameContainer) return;
-    
+
     try {
         const gamesData = await loadGames();
         const game = gamesData.featuredGame;
-        
+
         if (!game) {
             featuredGameContainer.innerHTML = '<p class="no-content">No featured game to display.</p>';
             return;
         }
-        
+
         featuredGameContainer.innerHTML = createGameHTML(game);
-        
+
         // Render game video if available
         const gameVideoContainer = document.querySelector('.game-video');
         if (gameVideoContainer && game.gameplayVideo) {
@@ -257,16 +265,16 @@ async function renderFeaturedGame(): Promise<void> {
 async function renderSkills(): Promise<void> {
     const skillsContainer = document.querySelector('.skills-container');
     if (!skillsContainer) return;
-    
+
     try {
         const skillCategories = await loadSkills();
-        
+
         if (skillCategories.length === 0) {
             skillsContainer.innerHTML = '<p class="no-content">No skills to display.</p>';
             return;
         }
-        
-        skillsContainer.innerHTML = skillCategories.map(category => 
+
+        skillsContainer.innerHTML = skillCategories.map(category =>
             createSkillHTML(category)
         ).join('');
     } catch (error) {
@@ -282,16 +290,32 @@ async function renderSkills(): Promise<void> {
 async function renderWorkExperience(): Promise<void> {
     const workExpContainer = document.querySelector('.work-exp-timeline');
     if (!workExpContainer) return;
-    
+
     try {
-        const companies = await loadWorkExperience();
-        
-        if (companies.length === 0) {
+        const workExperiences = await loadWorkExperience();
+
+        if (workExperiences.length === 0) {
             workExpContainer.innerHTML = '<p class="no-content">No work experience to display.</p>';
             return;
         }
-        
-        workExpContainer.innerHTML = companies.map(company => 
+
+        // Transform WorkExperience[] to Company[] for rendering
+        const companies = workExperiences.map(exp => {
+            return {
+                name: exp.company,
+                period: exp.duration,
+                projects: [{
+                    title: exp.position,
+                    tags: [], // 필요한 태그 데이터가 없으므로 빈 배열
+                    image: '', // 이미지 경로 없음
+                    role: exp.position,
+                    responsibilities: exp.achievements,
+                    note: exp.description
+                }]
+            } as Company;
+        });
+
+        workExpContainer.innerHTML = companies.map(company =>
             createWorkExperienceHTML(company)
         ).join('');
     } catch (error) {
@@ -312,7 +336,7 @@ async function initProjectRenderer(): Promise<void> {
             renderSkills(),
             renderWorkExperience()
         ]);
-        
+
         console.log('All content sections rendered successfully');
     } catch (error) {
         console.error('Error initializing renderers:', error);

@@ -31,7 +31,7 @@ function initSmoothScroll(): void {
             const targetId = this.getAttribute('href');
             if (!targetId) return;
             
-            const targetElement = document.querySelector(targetId);
+            const targetElement = document.querySelector(targetId) as HTMLElement;
             
             if (targetElement) {
                 window.scrollTo({

@@ -18,7 +18,7 @@ export function initSmoothScroll(): void {
                 e.preventDefault();
                 
                 const targetId = href;
-                const targetElement = document.querySelector(targetId);
+                const targetElement = document.querySelector(targetId) as HTMLElement;
                 
                 if (targetElement) {
                     // Calculate header height dynamically
@@ -108,8 +108,9 @@ export function initScrollEffects(): void {
         let currentSectionId = '';
         
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
+            const sectionElement = section as HTMLElement;
+            const sectionTop = sectionElement.offsetTop;
+            const sectionHeight = sectionElement.offsetHeight;
             
             if (scrollTop >= sectionTop - 100 && scrollTop < sectionTop + sectionHeight - 100) {
                 const id = section.getAttribute('id');
@@ -200,12 +201,13 @@ function fallbackLazyLoad(): void {
     const images = document.querySelectorAll('img[data-src]');
     
     images.forEach(img => {
-        const dataSrc = img.getAttribute('data-src');
+        const imgElement = img as HTMLImageElement;
+        const dataSrc = imgElement.getAttribute('data-src');
         if (dataSrc) {
-            img.setAttribute('src', dataSrc);
-            img.onload = function() {
-                img.removeAttribute('data-src');
-                img.classList.add('loaded');
+            imgElement.setAttribute('src', dataSrc);
+            imgElement.onload = function() {
+                imgElement.removeAttribute('data-src');
+                imgElement.classList.add('loaded');
             };
         }
     });
