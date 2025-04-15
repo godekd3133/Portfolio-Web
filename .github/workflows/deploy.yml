@@ -30,7 +30,6 @@ jobs:
     - name: Upload to S3
       run: |
         aws s3 sync ./backend/dist s3://${{ secrets.S3_BUCKET }} \
-          --delete \
-          --acl public-read \
-          --exclude ".git/*" \
-          --exclude ".github/*"
+        --delete \
+        --exclude ".git/*" \
+        --exclude ".github/*"
