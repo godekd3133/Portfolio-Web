@@ -2,27 +2,20 @@
  * Main application script
  */
 
-import { initNavigation } from './modules/navigation';
-import { renderProjects } from './modules/projects';
-import { renderFeaturedGame } from './modules/games';
-import { renderSkills } from './modules/skills';
-import { initContactForm } from './modules/contact';
+// 상위 경로의 모듈 파일들을 참조
+import { initNavigation } from '../../js/modules/navigation';
+import { initProjectRenderer } from '../../js/modules/projectRenderer';
+import { initContactForm } from '../../js/modules/contact';
 import { lazyLoadImages } from './utils/lazyLoad';
 
 // Execute when page load is complete
 document.addEventListener('DOMContentLoaded', (): void => {
     // Initialize navigation
     initNavigation();
-
-    // Render projects
-    renderProjects();
-
-    // Render games
-    renderFeaturedGame();
-
-    // Render tech stack
-    renderSkills();
-
+    
+    // 통합된 프로젝트 렌더러 사용
+    initProjectRenderer();
+    
     // Handle form submission
     initContactForm();
 });
