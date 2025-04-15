@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 대시보드 - 게임 개발자 포트폴리오</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</head>
+<body class="admin-page">
+    <div class="admin-wrapper">
+        <!-- 사이드바 메뉴 -->
+        <nav class="admin-sidebar">
+            <div class="admin-logo">
+                <h2>포트폴리오 관리</h2>
+            </div>
+            <ul class="admin-menu">
+                <li class="active"><a href="#" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> 대시보드</a></li>
+                <li><a href="#" data-section="projects"><i class="fas fa-gamepad"></i> 프로젝트</a></li>
+                <li><a href="#" data-section="add-project"><i class="fas fa-plus-circle"></i> 프로젝트 추가</a></li>
+                <li><a href="#" data-section="messages"><i class="fas fa-envelope"></i> 메시지</a></li>
+                <li><a href="#" data-section="settings"><i class="fas fa-cog"></i> 설정</a></li>
+                <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> 로그아웃</a></li>
+            </ul>
+        </nav>
+
+        <!-- 메인 콘텐츠 영역 -->
+        <main class="admin-content">
+            <div class="admin-header">
+                <div class="admin-title">
+                    <h1>대시보드</h1>
+                </div>
+                <div class="admin-user">
+                    <span id="admin-username">김민규</span>
+                    <span class="admin-role">관리자</span>
+                </div>
+            </div>
+
+            <!-- 대시보드 섹션 -->
+            <section id="dashboard" class="admin-section active">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>총 프로젝트</h3>
+                            <p class="card-value" id="total-projects">0</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>추천 프로젝트</h3>
+                            <p class="card-value" id="featured-projects">0</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>새 메시지</h3>
+                            <p class="card-value" id="new-messages">0</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>페이지 조회</h3>
+                            <p class="card-value" id="page-views">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-row">
+                    <div class="dashboard-column">
+                        <div class="dashboard-panel">
+                            <h3>최근 추가된 프로젝트</h3>
+                            <div class="table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>제목</th>
+                                            <th>추가일</th>
+                                            <th>상태</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="recent-projects-table">
+                                        <tr>
+                                            <td colspan="3" class="text-center">로딩 중...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-column">
+                        <div class="dashboard-panel">
+                            <h3>최근 메시지</h3>
+                            <div class="table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>보낸 사람</th>
+                                            <th>제목</th>
+                                            <th>날짜</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="recent-messages-table">
+                                        <tr>
+                                            <td colspan="3" class="text-center">로딩 중...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 프로젝트 섹션 -->
+            <section id="projects" class="admin-section">
+                <div class="admin-toolbar">
+                    <div class="search-container">
+                        <input type="text" id="project-search" placeholder="프로젝트 검색...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <button class="admin-btn primary-btn" id="new-project-btn">
+                        <i class="fas fa-plus"></i> 새 프로젝트
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>이미지</th>
+                                <th>제목</th>
+                                <th>태그</th>
+                                <th>추천</th>
+                                <th>생성일</th>
+                                <th>작업</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projects-table">
+                            <tr>
+                                <td colspan="7" class="text-center">로딩 중...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <button class="pagination-btn" id="prev-page"><i class="fas fa-chevron-left"></i></button>
+                    <span id="current-page">1</span> / <span id="total-pages">1</span>
+                    <button class="pagination-btn" id="next-page"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </section>
+
+            <!-- 프로젝트 추가 섹션 -->
+            <section id="add-project" class="admin-section">
+                <form id="project-form" class="admin-form">
+                    <div class="form-group">
+                        <label for="project-title">제목</label>
+                        <input type="text" id="project-title" name="title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-description">설명</label>
+                        <textarea id="project-description" name="description" rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group form-column">
+                            <label for="project-image">이미지</label>
+                            <div class="file-input-container">
+                                <input type="file" id="project-image" name="imageFile" accept="image/*">
+                                <label for="project-image" class="file-input-label">
+                                    <i class="fas fa-upload"></i> 이미지 업로드
+                                </label>
+                                <span id="file-name">선택된 파일 없음</span>
+                            </div>
+                            <div id="image-preview" class="image-preview"></div>
+                        </div>
+
+                        <div class="form-group form-column">
+                            <label for="project-video">비디오 URL (YouTube)</label>
+                            <input type="url" id="project-video" name="videoUrl" placeholder="예: https://www.youtube.com/watch?v=XXXXXXXXXXX">
+                            <p class="form-help">YouTube 영상 URL을 입력하세요.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group form-column">
+                            <label for="project-github">GitHub URL</label>
+                            <input type="url" id="project-github" name="githubUrl" placeholder="예: https://github.com/username/repo">
+                            <p class="form-help">프로젝트 소스 코드가 있는 GitHub 저장소 URL.</p>
+                        </div>
+
+                        <div class="form-group form-column">
+                            <label for="project-demo">게임 데모 URL</label>
+                            <input type="url" id="project-demo" name="demoUrl" placeholder="예: https://example.com/game">
+                            <p class="form-help">게임을 플레이할 수 있는 데모 URL (선택사항).</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-tags">태그</label>
+                        <input type="text" id="project-tags" name="tags" placeholder="예: Unity, 3D, RPG">
+                        <p class="form-help">쉼표로 구분된 태그를 입력하세요.</p>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group form-column checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="project-featured" name="featured">
+                                <span class="checkbox-text">추천 프로젝트로 표시</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group form-column">
+                            <label for="project-order">순서</label>
+                            <input type="number" id="project-order" name="order" min="0" value="0">
+                            <p class="form-help">표시 순서 (낮은 숫자가 먼저 표시됨)</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>프로젝트 세부 정보</label>
+                        <div id="project-details-editor" class="rich-editor">
+                            <!-- 상세 설명 에디터가 여기에 로드됩니다 -->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>스크린샷 (최대 5개)</label>
+                        <div class="file-input-container">
+                            <input type="file" id="project-screenshots" name="screenshotFiles" accept="image/*" multiple>
+                            <label for="project-screenshots" class="file-input-label">
+                                <i class="fas fa-images"></i> 스크린샷 업로드
+                            </label>
+                            <span id="screenshots-count">선택된 파일 없음</span>
+                        </div>
+                        <div id="screenshots-preview" class="screenshots-preview">
+                            <!-- 스크린샷 미리보기가 여기에 표시됩니다 -->
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="admin-btn secondary-btn">초기화</button>
+                        <button type="submit" class="admin-btn primary-btn">프로젝트 저장</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- 메시지 섹션 -->
+            <section id="messages" class="admin-section">
+                <div class="admin-toolbar">
+                    <div class="search-container">
+                        <input type="text" id="message-search" placeholder="메시지 검색...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="toolbar-actions">
+                        <button class="admin-btn secondary-btn" id="mark-all-read-btn">
+                            <i class="fas fa-check-double"></i> 모두 읽음 표시
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="select-all-messages"></th>
+                                <th>상태</th>
+                                <th>보낸 사람</th>
+                                <th>이메일</th>
+                                <th>제목</th>
+                                <th>날짜</th>
+                                <th>작업</th>
+                            </tr>
+                        </thead>
+                        <tbody id="messages-table">
+                            <tr>
+                                <td colspan="7" class="text-center">로딩 중...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <button class="pagination-btn" id="prev-messages-page"><i class="fas fa-chevron-left"></i></button>
+                    <span id="current-messages-page">1</span> / <span id="total-messages-pages">1</span>
+                    <button class="pagination-btn" id="next-messages-page"><i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- 메시지 상세 모달 -->
+                <div id="message-modal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 id="message-modal-title">메시지 제목</h2>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="message-details">
+                                <div class="message-info">
+                                    <p><strong>보낸 사람:</strong> <span id="message-sender">이름</span></p>
+                                    <p><strong>이메일:</strong> <span id="message-email">이메일</span></p>
+                                    <p><strong>날짜:</strong> <span id="message-date">날짜</span></p>
+                                </div>
+                                <div class="message-content">
+                                    <p id="message-body">메시지 내용</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="admin-btn secondary-btn" id="delete-message-btn">삭제</button>
+                            <button class="admin-btn primary-btn" id="reply-message-btn">답장</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 설정 섹션 -->
+            <section id="settings" class="admin-section">
+                <form id="settings-form" class="admin-form">
+                    <h3>계정 설정</h3>
+                    <div class="form-row">
+                        <div class="form-group form-column">
+                            <label for="admin-name">이름</label>
+                            <input type="text" id="admin-name" name="name" value="김민규">
+                        </div>
+                        <div class="form-group form-column">
+                            <label for="admin-email">이메일</label>
+                            <input type="email" id="admin-email" name="email" value="admin@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="current-password">현재 비밀번호</label>
+                        <input type="password" id="current-password" name="currentPassword">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group form-column">
+                            <label for="new-password">새 비밀번호</label>
+                            <input type="password" id="new-password" name="newPassword">
+                        </div>
+                        <div class="form-group form-column">
+                            <label for="confirm-password">비밀번호 확인</label>
+                            <input type="password" id="confirm-password" name="confirmPassword">
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <h3>사이트 설정</h3>
+                    <div class="form-group">
+                        <label for="site-title">사이트 제목</label>
+                        <input type="text" id="site-title" name="siteTitle" value="게임 개발자 포트폴리오">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="site-description">간단한 소개</label>
+                        <textarea id="site-description" name="siteDescription" rows="3">창의적인 게임 경험을 만드는 데 열정을 가진 게임 개발자입니다.</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="site-keywords">키워드</label>
+                        <input type="text" id="site-keywords" name="siteKeywords" value="게임 개발, 포트폴리오, Unity, Unreal">
+                        <p class="form-help">쉼표로 구분된 키워드 (SEO에 사용됩니다)</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-email">연락처 이메일</label>
+                        <input type="email" id="contact-email" name="contactEmail" value="contact@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>소셜 미디어 링크</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fab fa-github"></i></span>
+                            <input type="url" id="github-url" name="githubUrl" placeholder="GitHub URL">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fab fa-linkedin"></i></span>
+                            <input type="url" id="linkedin-url" name="linkedinUrl" placeholder="LinkedIn URL">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fab fa-twitter"></i></span>
+                            <input type="url" id="twitter-url" name="twitterUrl" placeholder="Twitter URL">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fab fa-artstation"></i></span>
+                            <input type="url" id="artstation-url" name="artstationUrl" placeholder="ArtStation URL">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="admin-btn secondary-btn">취소</button>
+                        <button type="submit" class="admin-btn primary-btn">설정 저장</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- 프로젝트 상세 모달 -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h2 id="project-modal-title">프로젝트 상세</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="project-modal-body">
+                <!-- 프로젝트 상세 내용이 여기에 로드됩니다 -->
+            </div>
+            <div class="modal-footer">
+                <button class="admin-btn secondary-btn" id="delete-project-btn">삭제</button>
+                <button class="admin-btn primary-btn" id="edit-project-btn">수정</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 확인 모달 -->
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content small-modal">
+            <div class="modal-header">
+                <h2>확인</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirm-message">이 작업을 진행하시겠습니까?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="admin-btn secondary-btn" id="cancel-action-btn">취소</button>
+                <button class="admin-btn danger-btn" id="confirm-action-btn">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
