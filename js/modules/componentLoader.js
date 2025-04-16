@@ -77,6 +77,13 @@ async function loadAllComponents() {
     if (footerContainer) {
         await loadComponent('components/footer.html', footerContainer);
     }
+    
+    // 이미지 모달 로드
+    const modalContainer = document.createElement('div');
+    await loadComponent('components/image-modal.html', modalContainer);
+    if (modalContainer.firstChild) {
+        document.body.appendChild(modalContainer.firstChild);
+    }
 }
 
 export { loadComponent, loadAllComponents };

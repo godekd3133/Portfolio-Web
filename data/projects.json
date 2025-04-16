@@ -10,6 +10,10 @@
         "Game Development"
       ],
       "image": "images/projects/gammaru-sample.jpg",
+      "additionalImages": [
+        "images/projects/gammaru-sample-1.jpg",
+        "images/projects/gammaru-sample-2.jpg"
+      ],
       "demoLink": "#",
       "codeLink": "https://github.com/godekd3133/GammaruSample"
     },

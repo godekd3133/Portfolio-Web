@@ -6,6 +6,23 @@ import { loadProjects, loadGames, loadSkills, loadWorkExperience } from './dataL
 
 // 프로젝트 HTML 생성
 function createProjectHTML(project) {
+    // 추가 이미지가 있는지 확인
+    const hasAdditionalImages = project.additionalImages && project.additionalImages.length > 0;
+    
+    // 추가 이미지 HTML 생성
+    const additionalImagesHTML = hasAdditionalImages ? `
+        <div class="project-additional-images">
+            <h4>Additional Images</h4>
+            <div class="project-gallery">
+                ${project.additionalImages.map(imgSrc => `
+                    <div class="gallery-item">
+                        <img src="${imgSrc}" alt="${project.title} Additional" onerror="this.parentElement.style.display='none'">
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    ` : '';
+    
     return `
         <div class="project-card" id="project-${project.id}">
             <div class="project-image">
@@ -23,6 +40,7 @@ function createProjectHTML(project) {
                 <div class="project-tags">
                     ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
                 </div>
+                ${additionalImagesHTML}
             </div>
         </div>
     `;

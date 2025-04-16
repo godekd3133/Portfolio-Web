@@ -1,4 +1,5 @@
-/**
+        // 이미지 갤러리 기능 초기화
+        initImageGallery();/**
  * 메인 JavaScript 파일
  * 모든 모듈을 가져와서 초기화합니다
  */
@@ -9,6 +10,7 @@ import { initAnimations } from './modules/animations.js';
 import { initRenderers } from './modules/projectRenderer.js';
 import { lazyLoadImages } from './modules/utils.js';
 import { loadAllComponents } from './modules/componentLoader.js';
+import { initImageGallery } from './modules/imageGallery.js';
 
 // 페이지 로드 완료 시 실행
 document.addEventListener('DOMContentLoaded', async () => {
@@ -27,6 +29,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         // 이미지 지연 로딩
         window.addEventListener('load', lazyLoadImages);
+        
+        // 이미지 갤러리 기능 초기화
+        initImageGallery();
         
         console.log('포트폴리오 웹사이트가 성공적으로 초기화되었습니다.');
     } catch (error) {
